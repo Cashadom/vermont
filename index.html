@@ -35,6 +35,7 @@
             top: 0;
             z-index: 1000;
             border-bottom: 2px solid #d4af37;
+            transition: background 0.3s ease;
         }
 
         .nav {
@@ -50,9 +51,80 @@
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: #f4f4f4;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-link:hover {
+            color: #d4af37;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #d4af37;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
         .contact-info {
             color: #f4f4f4;
             font-size: 1.1rem;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: #f4f4f4;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.95);
+                flex-direction: column;
+                padding: 20px 0;
+                gap: 15px;
+                border-bottom: 2px solid #d4af37;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .contact-info {
+                display: none;
+            }
         }
 
         /* Hero Section */
@@ -419,7 +491,15 @@
         <div class="container">
             <nav class="nav">
                 <div class="logo">The Vermont</div>
-                <div class="contact-info">@thevermont.lima</div>
+                <div class="nav-menu">
+                    <a href="#investment" class="nav-link">Investment</a>
+                    <a href="#financials" class="nav-link">Financials</a>
+                    <a href="#business-plan" class="nav-link">Business Plan</a>
+                    <a href="#terms" class="nav-link">Terms</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+                <div class="contact-info"></div>
+                <button class="mobile-menu-btn">☰</button>
             </nav>
         </div>
     </header>
@@ -438,7 +518,7 @@
     </section>
 
     <!-- Investment Opportunity -->
-    <section class="section">
+    <section class="section" id="investment">
         <div class="container">
             <h2 class="section-title">Investment Opportunity</h2>
             <div class="highlights">
@@ -462,7 +542,7 @@
     </section>
 
     <!-- Financial Overview -->
-    <section class="section">
+    <section class="section" id="financials">
         <div class="container">
             <h2 class="section-title">Financial Projections</h2>
             <div class="financial-grid">
@@ -487,7 +567,7 @@
     </section>
 
     <!-- Funding Requirements -->
-    <section class="section">
+    <section class="section" id="business-plan">
         <div class="container">
             <h2 class="section-title">Investor Profiles</h2>
             <div class="funding-breakdown">
@@ -511,7 +591,7 @@
     </section>
 
     <!-- Investment Benefits -->
-    <section class="section">
+    <section class="section" id="terms">
         <div class="container">
             <h2 class="section-title">Partner Benefits</h2>
             <div class="benefits-list">
@@ -572,7 +652,7 @@
     </section>
 
     <!-- Call to Action -->
-    <section class="section">
+    <section class="section" id="contact">
         <div class="container">
             <div class="cta">
                 <h2>Join The Vermont Family</h2>
@@ -590,7 +670,7 @@
         <div class="container">
             <p>Ready to invest in Lima's premier jazz destination?</p>
             <p style="margin-top: 10px;">
-                Follow us: <a href="#" class="social-link">@thevermont.lima</a> | 
+                Contact: <a href="#" class="social-link"></a> | 
                 <a href="https://wa.me/33695368383" class="social-link" target="_blank">WhatsApp: +33 6 95 36 83 83</a>
             </p>
         </div>
@@ -606,8 +686,22 @@
                     target.scrollIntoView({
                         behavior: 'smooth'
                     });
+                    
+                    // Close mobile menu if open
+                    const navMenu = document.querySelector('.nav-menu');
+                    if (navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                    }
                 }
             });
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
         });
 
         // Add scroll effects
@@ -643,6 +737,13 @@
             section.style.transform = 'translateY(20px)';
             section.style.transition = 'all 0.6s ease-out';
             observer.observe(section);
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.nav-menu') && !e.target.closest('.mobile-menu-btn')) {
+                navMenu.classList.remove('active');
+            }
         });
     </script>
 </body>
