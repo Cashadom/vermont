@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+   <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){
+  w[l]=w[l]||[];
+  w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
+  var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),
+  dl=l!='dataLayer'?'&l='+l:'';
+  j.async=true;
+  j.src='https://www.googletagmanager.com/gtm.js?id=GTM-KZ9H4XJ';
+  f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KZ9H4XJ');</script>
+<!-- End Google Tag Manager -->
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Vermont - Investment Opportunity</title>
@@ -483,9 +496,63 @@
                 font-size: 1rem;
             }
         }
+
+        /* Cookie Banner Styles */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.9);
+            color: #f4f4f4;
+            padding: 15px;
+            z-index: 9999;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid #d4af37;
+        }
+        
+        .cookie-banner p {
+            margin: 0 15px 10px 0;
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .cookie-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .cookie-btn {
+            background: #d4af37;
+            color: #000;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .cookie-btn:hover {
+            background: #f4f4f4;
+        }
+        
+        .cookie-btn.secondary {
+            background: transparent;
+            color: #f4f4f4;
+            border: 1px solid #f4f4f4;
+        }
     </style>
 </head>
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXX"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
     <!-- Header -->
     <header class="header">
         <div class="container">
@@ -623,33 +690,33 @@
         </div>
     </section>
 
-   <!-- The Concept -->
-<section class="section">
-    <div class="container">
-        <h2 class="section-title">The Vermont Concept</h2>
-        <div style="background: url('image32.png') center/cover no-repeat; padding: 40px; border-radius: 15px; text-align: center; background-blend-mode: overlay; background-color: rgba(0,0,0,0.6);">
-            <p style="font-size: 1.3rem; line-height: 1.8; color: #f4f4f4; margin-bottom: 30px; background: rgba(0,0,0,0.5); padding: 20px; border-radius: 10px;">
-                The Vermont brings the sophisticated ambiance of New York's legendary jazz clubs to Lima. 
-                Our intimate venue combines world-class live music with expertly crafted cocktails, 
-                creating an unparalleled experience for discerning guests.
-            </p>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-top: 40px; background: rgba(0,0,0,0.5); padding: 20px; border-radius: 10px;">
-                <div>
-                    <h4 style="color: #d4af37; font-size: 1.2rem; margin-bottom: 10px;">🎵 Live Jazz</h4>
-                    <p style="color: #cccccc;">3 nights per week featuring local and international artists</p>
-                </div>
-                <div>
-                    <h4 style="color: #d4af37; font-size: 1.2rem; margin-bottom: 10px;">🍸 Premium Bar</h4>
-                    <p style="color: #cccccc;">Signature cocktails with premium spirits and local ingredients</p>
-                </div>
-                <div>
-                    <h4 style="color: #d4af37; font-size: 1.2rem; margin-bottom: 10px;">🌟 Exclusive Atmosphere</h4>
-                    <p style="color: #cccccc;">Intimate setting with sophisticated decor and ambiance</p>
+    <!-- The Concept -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">The Vermont Concept</h2>
+            <div style="background: url('image32.png') center/cover no-repeat; padding: 40px; border-radius: 15px; text-align: center; background-blend-mode: overlay; background-color: rgba(0,0,0,0.6);">
+                <p style="font-size: 1.3rem; line-height: 1.8; color: #f4f4f4; margin-bottom: 30px; background: rgba(0,0,0,0.5); padding: 20px; border-radius: 10px;">
+                    The Vermont brings the sophisticated ambiance of New York's legendary jazz clubs to Lima. 
+                    Our intimate venue combines world-class live music with expertly crafted cocktails, 
+                    creating an unparalleled experience for discerning guests.
+                </p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-top: 40px; background: rgba(0,0,0,0.5); padding: 20px; border-radius: 10px;">
+                    <div>
+                        <h4 style="color: #d4af37; font-size: 1.2rem; margin-bottom: 10px;">🎵 Live Jazz</h4>
+                        <p style="color: #cccccc;">3 nights per week featuring local and international artists</p>
+                    </div>
+                    <div>
+                        <h4 style="color: #d4af37; font-size: 1.2rem; margin-bottom: 10px;">🍸 Premium Bar</h4>
+                        <p style="color: #cccccc;">Signature cocktails with premium spirits and local ingredients</p>
+                    </div>
+                    <div>
+                        <h4 style="color: #d4af37; font-size: 1.2rem; margin-bottom: 10px;">🌟 Exclusive Atmosphere</h4>
+                        <p style="color: #cccccc;">Intimate setting with sophisticated decor and ambiance</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- Call to Action -->
     <section class="section" id="contact">
@@ -666,27 +733,84 @@
     </section>
 
     <!-- Footer -->
-     <footer class="footer">
+    <footer class="footer">
         <div class="container">
             <p>Ready to invest in Lima's premier jazz destination?</p>
             <p style="margin-top: 10px;">
                 Contact: <a href="#" class="social-link"></a> | 
                 <a href="https://wa.me/33695368383" class="social-link" target="_blank">WhatsApp: +33 6 95 36 83 83</a>
-</p>
-<p style="color: #d4af37; font-size: 0.9rem; margin-top: 5px;">14 investors have already contacted us</p>
+            </p>
+            <p style="color: #d4af37; font-size: 0.9rem; margin-top: 5px;">14 investors have already contacted us</p>
             <p style="margin-top: 20px;">
                 <a href="file:///C:/Users/PC/Desktop/vermont/terms.html" class="social-link">Legals</a>
             </p>
         </div>
     </footer>
 
-    <script>
-        [... le reste du script reste inchangé ...]
-    </script>
-</body>
-</html>
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-banner" class="cookie-banner" style="display: none;">
+        <p>We use cookies to improve your experience and analyze site traffic. By continuing to browse, you consent to our use of cookies.</p>
+        <div class="cookie-buttons">
+            <button class="cookie-btn secondary" onclick="setCookiePreference(false)">Reject</button>
+            <button class="cookie-btn" onclick="setCookiePreference(true)">Accept All</button>
+        </div>
+    </div>
 
     <script>
+        // Configuration initiale de la dataLayer
+        window.dataLayer = window.dataLayer || [];
+        
+        // Fonction pour gérer les préférences de cookies
+        function manageCookies() {
+            // Vérifie si le consentement existe déjà
+            if (!localStorage.getItem('cookieConsent')) {
+                // Affiche la bannière si aucun choix n'a été fait
+                document.getElementById('cookie-banner').style.display = 'flex';
+            } else {
+                // Applique le choix existant
+                const consent = JSON.parse(localStorage.getItem('cookieConsent'));
+                if (consent.analytics) {
+                    loadGTM();
+                }
+            }
+        }
+        
+        // Charge Google Tag Manager si accepté
+        function loadGTM() {
+            // Votre configuration GTM ici
+            window.dataLayer.push({
+                'event': 'gtm.js',
+                'gtm.start': new Date().getTime()
+            });
+            
+            // Configuration Google Ads
+            gtag('config', 'AW-871973379', {
+                'anonymize_ip': true,
+                'allow_google_signals': false,
+                'allow_ad_personalization_signals': false
+            });
+        }
+        
+        // Gestion des boutons de consentement
+        function setCookiePreference(analytics) {
+            localStorage.setItem('cookieConsent', JSON.stringify({
+                analytics: analytics,
+                date: new Date().toISOString()
+            }));
+            
+            document.getElementById('cookie-banner').style.display = 'none';
+            
+            if (analytics) {
+                loadGTM();
+                // Déclenche un événement de conversion si nécessaire
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-871973379/XXXXX',
+                    'value': 1.0,
+                    'currency': 'USD'
+                });
+            }
+        }
+
         // Smooth scrolling for navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -754,6 +878,11 @@
             if (!e.target.closest('.nav-menu') && !e.target.closest('.mobile-menu-btn')) {
                 navMenu.classList.remove('active');
             }
+        });
+
+        // Au chargement de la page
+        document.addEventListener('DOMContentLoaded', function() {
+            manageCookies();
         });
     </script>
 </body>
