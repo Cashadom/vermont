@@ -1,240 +1,103 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Petit Bistrot – Prévisionnel Complet 🇵🇪</title>
+  <title>Terms of Use - Lima Cafeteria Project</title>
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Georgia', serif;
+      color: #2c2c2c;
+      line-height: 1.7;
+      background: linear-gradient(to bottom, #fafafa, #fff);
+      overflow-x: hidden;
+    }
+    .hero {
+      height: 60vh;
+      background: linear-gradient(135deg, rgba(20,20,40,0.9), rgba(60,40,80,0.8));
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 300;
+      letter-spacing: 2px;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+    .section {
       max-width: 900px;
       margin: 40px auto;
       padding: 20px;
-      background: #fdfdfd;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     }
-    label, summary {
-      display: block;
-      margin-top: 15px;
-      font-weight: bold;
-      font-size: 1.1em;
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 25px;
+      border-bottom: 2px solid #d4af37;
+      padding-bottom: 10px;
+      color: #2c2c2c;
     }
-    input {
-      width: 100%;
-      padding: 8px;
-      margin-top: 4px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      box-sizing: border-box;
+    p, li {
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 15px;
+      line-height: 1.6;
     }
-    .results {
-      margin-top: 25px;
-      padding: 15px;
-      background: #f0f0f0;
-      border-radius: 10px;
+    ul {
+      padding-left: 20px;
+      margin-bottom: 25px;
     }
-    h1, h2 {
-      margin-top: 30px;
-      color: #333;
-    }
-    details {
-      margin-top: 10px;
-      background: #fff;
-      padding: 10px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-    }
-    summary {
-      cursor: pointer;
-    }
-    @media (max-width: 600px) {
-      body {
-        margin: 10px;
-        padding: 10px;
-      }
-      h1, h2 {
-        font-size: 1.3em;
-      }
+    .footer-text {
+      text-align: center;
+      color: #666;
+      font-style: italic;
+      margin-top: 40px;
+      font-size: 1rem;
+      letter-spacing: 1px;
     }
   </style>
 </head>
 <body>
-  <h1>📋 Petit Bistrot – Prévisionnel Complet</h1>
+  <section class="hero">
+    <h1>Terms of Use</h1>
+  </section>
 
-  <h2>📐 Données de base</h2>
+  <section class="section">
+    <h2>Project Terms and Conditions</h2>
 
-  <label for="area">Surface du local (m²)</label>
-  <input type="number" id="area" value="50" min="10" />
+    <p>This website is a demonstration page created to present a cafeteria project based in Lima, Peru. It is intended to showcase the concept and provide information about the project.</p>
 
-  <label>Heures d’ouverture / jour</label>
-  <input type="number" id="hoursOpen" value="8" />
+    <h3>1. Purpose</h3>
+    <p>The content on this site is for informational purposes only and does not constitute a formal offer or financial advice.</p>
 
-  <label>Jours ouverts par mois</label>
-  <input type="number" id="days" value="30" />
+    <h3>2. Accuracy</h3>
+    <p>While we strive to provide accurate and up-to-date information, no guarantees are made regarding the completeness or reliability of the content.</p>
 
-  <label>Panier moyen (€)</label>
-  <input type="number" id="avgTicket" value="15" />
+    <h3>3. Liability</h3>
+    <p>We are not responsible for any damages or losses resulting from the use of this site or the information provided herein.</p>
 
-  <label>Loyer mensuel (€)</label>
-  <input type="number" id="rent" value="2000" />
+    <h3>4. Confidentiality</h3>
+    <p>All project-related information is confidential and should not be shared or used without permission.</p>
 
-  <label>Salaires mensuels (€)</label>
-  <input type="number" id="wages" value="350" />
+    <h3>5. Changes</h3>
+    <p>These terms may be updated at any time without prior notice. Continued use of this site means acceptance of the current terms.</p>
 
-  <!-- NOUVEAU CHAMP CAPEX -->
-  <label>CAPEX - Charges fixes (ex: assurance, cotisations, imprévus) (€)</label>
-  <input type="number" id="capex" value="500" min="0" />
+    <p class="footer-text">© 2025 - Lima Cafeteria Project Demo</p>
+  </section>
 
-  <label>Coût matières premières (% CA)</label>
-  <input type="number" id="rawCostRate" value="25" />
-
-  <label>Électricité + Gaz (% CA)</label>
-  <input type="number" id="utilitiesRate" value="5" />
-
-  <label>Marketing + Divers (% CA)</label>
-  <input type="number" id="marketingRate" value="5" />
-
-  <label>Taux d'occupation moyen (%)</label>
-  <input type="number" id="occupancyRate" value="75" min="10" max="100" />
-
-  <label>Durée moyenne d'une rotation (en minutes)</label>
-  <input type="number" id="rotationTime" value="45" min="10" />
-
-  <label>% d'heures creuses</label>
-  <input type="number" id="offPeakRate" value="50" min="0" max="100" />
-
-  <h2>👥 Investisseur</h2>
-
-  <label>Montant investi (€)</label>
-  <input type="number" id="investment" value="5000" />
-
-  <label>Réinvestissement du bénéfice (%)</label>
-  <input type="number" id="reinvestRate" value="20" />
-
-  <div class="results" id="output"></div>
-
-  <script>
-    const inputs = document.querySelectorAll("input");
-    const output = document.getElementById("output");
-
-    function updateBP() {
-      const area = +document.getElementById("area").value;
-      const hoursOpen = +document.getElementById("hoursOpen").value;
-      const days = +document.getElementById("days").value;
-      const avgTicket = +document.getElementById("avgTicket").value;
-      const rent = +document.getElementById("rent").value;
-      const wages = +document.getElementById("wages").value;
-      const capex = +document.getElementById("capex").value; // CAPEX ajouté ici
-      const rawCostRate = +document.getElementById("rawCostRate").value;
-      const utilitiesRate = +document.getElementById("utilitiesRate").value;
-      const marketingRate = +document.getElementById("marketingRate").value;
-      const occupancyRate = +document.getElementById("occupancyRate").value / 100;
-      const rotationTime = +document.getElementById("rotationTime").value;
-      const offPeakRate = +document.getElementById("offPeakRate").value / 100;
-      const investment = +document.getElementById("investment").value;
-      const reinvestRate = +document.getElementById("reinvestRate").value;
-
-      const spacePerTable = 2.5;
-      const clientsPerTablePerHour = 60 / rotationTime;
-      const tables = Math.floor(area / spacePerTable);
-      const effectiveHours = hoursOpen * ((1 - offPeakRate) + offPeakRate * 0.5);
-      const clientsPerDay = Math.floor(tables * clientsPerTablePerHour * effectiveHours * occupancyRate);
-
-      const grossRevenue = avgTicket * clientsPerDay * days;
-
-      const rawCost = grossRevenue * (rawCostRate / 100);
-      const utilitiesCost = grossRevenue * (utilitiesRate / 100);
-      const marketingCost = grossRevenue * (marketingRate / 100);
-
-      // On ajoute capex dans les coûts opérationnels
-      const operationalCosts = rent + wages + capex + rawCost + utilitiesCost + marketingCost;
-      const taxableProfit = grossRevenue - operationalCosts;
-      const tax = taxableProfit * 0.295;
-      const netProfit = taxableProfit - tax;
-
-      const reinvested = netProfit * (reinvestRate / 100);
-      const distributableProfit = netProfit - reinvested;
-
-      const ownership = investment / 100000;
-      const monthlyDividend = distributableProfit * ownership;
-      const annualDividend = monthlyDividend * 12;
-
-      // Démarrage
-      const costPerTable = 300;
-      const costPerCover = 150;
-      const kitchenPerTable = 400;
-      const decor = 2000;
-      const travaux = 5000;
-      const signage = 500;
-      const caisse = 600;
-      const stockInitial = 2000;
-      const fraisLegaux = 1000;
-      const marketing = 800;
-      const imprevus = 1000;
-
-      const mobilier = tables * costPerTable;
-      const vaisselle = tables * costPerCover;
-      const cuisine = tables * kitchenPerTable;
-      const totalInitial = mobilier + vaisselle + cuisine + decor + travaux + signage + caisse + stockInitial + fraisLegaux + marketing + imprevus;
-
-      output.innerHTML = `
-        <h2>📊 Prévisionnel Mensuel (€)</h2>
-        <p><strong>Nombre de tables :</strong> ${tables}</p>
-        <p><strong>Clients par jour estimés :</strong> ${clientsPerDay}</p>
-        <p><strong>Chiffre d'affaires mensuel :</strong> €${grossRevenue.toFixed(2)}</p>
-        <p><strong>Coûts opérationnels totaux :</strong> €${operationalCosts.toFixed(2)}</p>
-        <p><strong>– dont CAPEX (charges fixes) :</strong> €${capex.toFixed(2)}</p>
-        <p><strong>Bénéfice imposable :</strong> €${taxableProfit.toFixed(2)}</p>
-        <p><strong>Impôt estimé (29.5%) :</strong> €${tax.toFixed(2)}</p>
-        <p><strong>Bénéfice net mensuel :</strong> €${netProfit.toFixed(2)}</p>
-        <p><strong>Réinvesti :</strong> €${reinvested.toFixed(2)}</p>
-        <p><strong>Bénéfice distribuable :</strong> €${distributableProfit.toFixed(2)}</p>
-
-        <h2>👤 Investisseur</h2>
-        <p><strong>Part détenue :</strong> ${(ownership * 100).toFixed(2)}%</p>
-        <p><strong>Dividende mensuel estimé :</strong> €${monthlyDividend.toFixed(2)}</p>
-        <p><strong>Dividende annuel estimé :</strong> €${annualDividend.toFixed(2)}</p>
-
-        <h2>🏗️ Prévisionnel Démarrage – Total : ${totalInitial.toLocaleString()} PEN (~${(totalInitial / 4).toLocaleString()} €)</h2>
-
-        <details open>
-          <summary>🪑 Mobilier – ${mobilier} PEN</summary>
-          <ul><li>Chaises et tables bois : ${costPerTable} PEN x ${tables}</li></ul>
-        </details>
-
-        <details>
-          <summary>🍽️ Vaisselle – ${vaisselle} PEN</summary>
-          <ul><li>Assiettes, verres, couverts : ${costPerCover} PEN x ${tables}</li></ul>
-        </details>
-
-        <details>
-          <summary>🍳 Cuisine – ${cuisine} PEN</summary>
-          <ul>
-            <li>Frigo : 1500 PEN</li>
-            <li>Blender + Extracteur : 600 PEN</li>
-            <li>Plancha / four : 800 PEN</li>
-            <li>Petits ustensiles : 1100 PEN</li>
-          </ul>
-        </details>
-
-        <details><summary>🎨 Décoration – ${decor} PEN</summary></details>
-        <details><summary>🔧 Travaux – ${travaux} PEN</summary></details>
-        <details><summary>🪧 Enseigne – ${signage} PEN</summary></details>
-        <details><summary>💻 Caisse – ${caisse} PEN</summary></details>
-        <details><summary>📦 Stock initial – ${stockInitial} PEN</summary></details>
-        <details><summary>📋 Frais légaux – ${fraisLegaux} PEN</summary></details>
-        <details><summary>📢 Marketing lancement – ${marketing} PEN</summary></details>
-        <details><summary>⚠️ Imprévus – ${imprevus} PEN</summary></details>
-      `;
-    }
-
-    inputs.forEach(input => input.addEventListener("input", updateBP));
-    updateBP();
-  </script>
-  <footer style="text-align:center; margin-top:40px;">
-  <a href="https://www.jazzclublima.com" target="_blank" rel="noopener noreferrer">Back to home</a>
-</footer>
-
+  <footer style="text-align:center; margin: 40px 0;">
+    <a href="https://www.jazzclublima.com" target="_blank" rel="noopener noreferrer" style="color:#d4af37; text-decoration:none;">Back to Home</a>
+  </footer>
 </body>
 </html>
