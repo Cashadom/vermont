@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Petit Bistrot – Business Plan Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #fdfdfd;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 4px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    .results {
+      margin-top: 20px;
+      padding: 15px;
+      background: #f0f0f0;
+      border-radius: 10px;
+    }
+    h1, h2 {
+      margin-top: 30px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>💼 Petit Bistrot – Business Plan Generator</h1>
+
+  <h2>📉 Business Inputs</h2>
+
+  <label>Monthly Rent (€)</label>
+  <input type="number" id="rent" value="2000">
+
+  <label>Total Monthly Wages (€)</label>
+  <input type="number" id="wages" value="3500">
+
+  <label>Average Ticket (€)</label>
+  <input type="number" id="avgTicket" value="15">
+
+  <label>Clients per Day</label>
+  <input type="number" id="clients" value="80">
+
+  <label>Days Open per Month</label>
+  <input type="number" id="days" value="30">
+
+  <label>Raw Material Costs (% of Gross Revenue)</label>
+  <input type="number" id="rawCostRate" value="25">
+
+  <label>Utilities + Gas + Electricity (% of Gross Revenue)</label>
+  <input type="number" id="utilitiesRate" value="5">
+
+  <label>Marketing & Miscellaneous (% of Gross Revenue)</label>
+  <input type="number" id="marketingRate" value="5">
+
+  <h2>👥 Investor Section</h2>
+
+  <label>Investment Amount (€)</label>
+  <input type="number" id="investment" value="5000">
+
+  <label>Share Price (€)</label>
+  <input type="number" id="sharePrice" value="1000">
+
+  <label>Profit Reinvestment (%)</label>
+  <input type="number" id="reinvestRate" value="20">
+
+  <div class="results" id="output"></div>
+
+  <script>
+    const inputs = document.querySelectorAll("input");
+    const output = document.getElementById("output");
+
+    function updateBP() {
+      const rent = +document.getElementById("rent").value;
+      const wages = +document.getElementById("wages").value;
+      const avgTicket = +document.getElementById("avgTicket").value;
+      const clients = +document.getElementById("clients").value;
+      const days = +document.getElementById("days").value;
+
+      const rawCostRate = +document.getElementById("rawCostRate").value;
+      const utilitiesRate = +document.getElementById("utilitiesRate").value;
+      const marketingRate = +document.getElementById("marketingRate").value;
+
+      const investment = +document.getElementById("investment").value;
+      const sharePrice = +document.getElementById("sharePrice").value;
+      const reinvestRate = +document.getElementById("reinvestRate").value;
+
+      const grossRevenue = avgTicket * clients * days;
+      const rawCost = grossRevenue * (rawCostRate / 100);
+      const utilitiesCost = grossRevenue * (utilitiesRate / 100);
+      const marketingCost = grossRevenue * (marketingRate / 100);
+
+      const operationalCosts = rent + wages + rawCost + utilitiesCost + marketingCost;
+      const taxableProfit = grossRevenue - operationalCosts;
+      const tax = taxableProfit * 0.295; // Peruvian corporate tax: 29.5%
+      const netProfit = taxableProfit - tax;
+
+      const reinvested = netProfit * (reinvestRate / 100);
+      const distributableProfit = netProfit - reinvested;
+
+      const totalShares = investment > 0 ? (investment / sharePrice) : 0;
+      const ownership = totalShares * sharePrice / (sharePrice * 100); // assuming 100 shares total
+
+      const monthlyDividend = distributableProfit * ownership;
+      const annualDividend = monthlyDividend * 12;
+
+      output.innerHTML = `
+        <h2>📊 Results</h2>
+        <p><strong>Gross Monthly Revenue:</strong> €${grossRevenue.toFixed(2)}</p>
+        <p><strong>Operational Costs (Fixed + Variable):</strong> €${operationalCosts.toFixed(2)}</p>
+        <p><strong>Taxable Profit:</strong> €${taxableProfit.toFixed(2)}</p>
+        <p><strong>Estimated Tax (29.5%):</strong> €${tax.toFixed(2)}</p>
+        <p><strong>Net Monthly Profit:</strong> €${netProfit.toFixed(2)}</p>
+        <p><strong>Reinvested (saved):</strong> €${reinvested.toFixed(2)}</p>
+        <p><strong>Distributable Profit:</strong> €${distributableProfit.toFixed(2)}</p>
+        <hr>
+        <h2>👤 Investor</h2>
+        <p><strong>Number of Shares:</strong> ${totalShares}</p>
+        <p><strong>Ownership (%):</strong> ${(ownership * 100).toFixed(2)}%</p>
+        <p><strong>Monthly Dividend:</strong> €${monthlyDividend.toFixed(2)}</p>
+        <p><strong>Annual Dividend:</strong> €${annualDividend.toFixed(2)}</p>
+      `;
+    }
+
+    inputs.forEach(input => input.addEventListener("input", updateBP));
+    updateBP(); // initialize on load
+  </script>
+</body>
+</html>
