@@ -276,7 +276,6 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
 
-        /* Rest of the CSS remains the same */
         .values-section {
             background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
             color: white;
@@ -370,6 +369,32 @@
             padding: 40px;
             font-size: 1rem;
             opacity: 0.9;
+            background: rgba(0,0,0,0.2);
+            border-top: 1px solid #f59e0b;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: #f59e0b;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+
+        .footer-link:hover {
+            color: white;
+            background: rgba(245,158,11,0.2);
+            text-decoration: none;
+            transform: translateY(-2px);
         }
 
         .cta-section {
@@ -423,6 +448,15 @@
             
             .hero-section, .menu-section, .values-section, .ambiance-section {
                 padding: 35px 25px;
+            }
+
+            .footer {
+                padding: 30px 20px;
+            }
+            
+            .footer-links {
+                gap: 15px;
+                margin-top: 15px;
             }
         }
 
@@ -665,6 +699,12 @@
             <p style="margin-top: 10px; font-style: italic;">
                 "Warmth, Simplicity, Quality"
             </p>
+            
+            <div class="footer-links">
+                <a href="file:///C:/Users/PC/Desktop/vermont/terms.html" class="footer-link">Terms</a>
+                <a href="file:///C:/Users/PC/Desktop/vermont/generateur.html" class="footer-link">Plan</a>
+                <a href="#contact" class="footer-link">Contact</a>
+            </div>
         </footer>
     </div>
 
