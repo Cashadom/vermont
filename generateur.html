@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Petit Bistrot – Business Plan Calculator</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Petit Bistrot – Prévisionnel Complet 🇵🇪</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -13,10 +14,11 @@
       border-radius: 12px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
-    label {
+    label, summary {
       display: block;
-      margin-top: 10px;
+      margin-top: 15px;
       font-weight: bold;
+      font-size: 1.1em;
     }
     input {
       width: 100%;
@@ -24,9 +26,10 @@
       margin-top: 4px;
       border-radius: 6px;
       border: 1px solid #ccc;
+      box-sizing: border-box;
     }
     .results {
-      margin-top: 20px;
+      margin-top: 25px;
       padding: 15px;
       background: #f0f0f0;
       border-radius: 10px;
@@ -35,47 +38,79 @@
       margin-top: 30px;
       color: #333;
     }
+    details {
+      margin-top: 10px;
+      background: #fff;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    summary {
+      cursor: pointer;
+    }
+    @media (max-width: 600px) {
+      body {
+        margin: 10px;
+        padding: 10px;
+      }
+      h1, h2 {
+        font-size: 1.3em;
+      }
+    }
   </style>
 </head>
 <body>
-  <h1>💼 Petit Bistrot – Business Plan Generator</h1>
+  <h1>📋 Petit Bistrot – Prévisionnel Complet</h1>
 
-  <h2>📉 Business Inputs</h2>
+  <h2>📐 Données de base</h2>
 
-  <label>Monthly Rent (€)</label>
-  <input type="number" id="rent" value="2000">
+  <label for="area">Surface du local (m²)</label>
+  <input type="number" id="area" value="50" min="10" />
 
-  <label>Total Monthly Wages (€)</label>
-  <input type="number" id="wages" value="3500">
+  <label>Heures d’ouverture / jour</label>
+  <input type="number" id="hoursOpen" value="8" />
 
-  <label>Average Ticket (€)</label>
-  <input type="number" id="avgTicket" value="15">
+  <label>Jours ouverts par mois</label>
+  <input type="number" id="days" value="30" />
 
-  <label>Clients per Day</label>
-  <input type="number" id="clients" value="80">
+  <label>Panier moyen (€)</label>
+  <input type="number" id="avgTicket" value="15" />
 
-  <label>Days Open per Month</label>
-  <input type="number" id="days" value="30">
+  <label>Loyer mensuel (€)</label>
+  <input type="number" id="rent" value="2000" />
 
-  <label>Raw Material Costs (% of Gross Revenue)</label>
-  <input type="number" id="rawCostRate" value="25">
+  <label>Salaires mensuels (€)</label>
+  <input type="number" id="wages" value="350" />
 
-  <label>Utilities + Gas + Electricity (% of Gross Revenue)</label>
-  <input type="number" id="utilitiesRate" value="5">
+  <!-- NOUVEAU CHAMP CAPEX -->
+  <label>CAPEX - Charges fixes (ex: assurance, cotisations, imprévus) (€)</label>
+  <input type="number" id="capex" value="500" min="0" />
 
-  <label>Marketing & Miscellaneous (% of Gross Revenue)</label>
-  <input type="number" id="marketingRate" value="5">
+  <label>Coût matières premières (% CA)</label>
+  <input type="number" id="rawCostRate" value="25" />
 
-  <h2>👥 Investor Section</h2>
+  <label>Électricité + Gaz (% CA)</label>
+  <input type="number" id="utilitiesRate" value="5" />
 
-  <label>Investment Amount (€)</label>
-  <input type="number" id="investment" value="5000">
+  <label>Marketing + Divers (% CA)</label>
+  <input type="number" id="marketingRate" value="5" />
 
-  <label>Share Price (€)</label>
-  <input type="number" id="sharePrice" value="1000">
+  <label>Taux d'occupation moyen (%)</label>
+  <input type="number" id="occupancyRate" value="75" min="10" max="100" />
 
-  <label>Profit Reinvestment (%)</label>
-  <input type="number" id="reinvestRate" value="20">
+  <label>Durée moyenne d'une rotation (en minutes)</label>
+  <input type="number" id="rotationTime" value="45" min="10" />
+
+  <label>% d'heures creuses</label>
+  <input type="number" id="offPeakRate" value="50" min="0" max="100" />
+
+  <h2>👥 Investisseur</h2>
+
+  <label>Montant investi (€)</label>
+  <input type="number" id="investment" value="5000" />
+
+  <label>Réinvestissement du bénéfice (%)</label>
+  <input type="number" id="reinvestRate" value="20" />
 
   <div class="results" id="output"></div>
 
@@ -84,59 +119,122 @@
     const output = document.getElementById("output");
 
     function updateBP() {
+      const area = +document.getElementById("area").value;
+      const hoursOpen = +document.getElementById("hoursOpen").value;
+      const days = +document.getElementById("days").value;
+      const avgTicket = +document.getElementById("avgTicket").value;
       const rent = +document.getElementById("rent").value;
       const wages = +document.getElementById("wages").value;
-      const avgTicket = +document.getElementById("avgTicket").value;
-      const clients = +document.getElementById("clients").value;
-      const days = +document.getElementById("days").value;
-
+      const capex = +document.getElementById("capex").value; // CAPEX ajouté ici
       const rawCostRate = +document.getElementById("rawCostRate").value;
       const utilitiesRate = +document.getElementById("utilitiesRate").value;
       const marketingRate = +document.getElementById("marketingRate").value;
-
+      const occupancyRate = +document.getElementById("occupancyRate").value / 100;
+      const rotationTime = +document.getElementById("rotationTime").value;
+      const offPeakRate = +document.getElementById("offPeakRate").value / 100;
       const investment = +document.getElementById("investment").value;
-      const sharePrice = +document.getElementById("sharePrice").value;
       const reinvestRate = +document.getElementById("reinvestRate").value;
 
-      const grossRevenue = avgTicket * clients * days;
+      const spacePerTable = 2.5;
+      const clientsPerTablePerHour = 60 / rotationTime;
+      const tables = Math.floor(area / spacePerTable);
+      const effectiveHours = hoursOpen * ((1 - offPeakRate) + offPeakRate * 0.5);
+      const clientsPerDay = Math.floor(tables * clientsPerTablePerHour * effectiveHours * occupancyRate);
+
+      const grossRevenue = avgTicket * clientsPerDay * days;
+
       const rawCost = grossRevenue * (rawCostRate / 100);
       const utilitiesCost = grossRevenue * (utilitiesRate / 100);
       const marketingCost = grossRevenue * (marketingRate / 100);
 
-      const operationalCosts = rent + wages + rawCost + utilitiesCost + marketingCost;
+      // On ajoute capex dans les coûts opérationnels
+      const operationalCosts = rent + wages + capex + rawCost + utilitiesCost + marketingCost;
       const taxableProfit = grossRevenue - operationalCosts;
-      const tax = taxableProfit * 0.295; // Peruvian corporate tax: 29.5%
+      const tax = taxableProfit * 0.295;
       const netProfit = taxableProfit - tax;
 
       const reinvested = netProfit * (reinvestRate / 100);
       const distributableProfit = netProfit - reinvested;
 
-      const totalShares = investment > 0 ? (investment / sharePrice) : 0;
-      const ownership = totalShares * sharePrice / (sharePrice * 100); // assuming 100 shares total
-
+      const ownership = investment / 100000;
       const monthlyDividend = distributableProfit * ownership;
       const annualDividend = monthlyDividend * 12;
 
+      // Démarrage
+      const costPerTable = 300;
+      const costPerCover = 150;
+      const kitchenPerTable = 400;
+      const decor = 2000;
+      const travaux = 5000;
+      const signage = 500;
+      const caisse = 600;
+      const stockInitial = 2000;
+      const fraisLegaux = 1000;
+      const marketing = 800;
+      const imprevus = 1000;
+
+      const mobilier = tables * costPerTable;
+      const vaisselle = tables * costPerCover;
+      const cuisine = tables * kitchenPerTable;
+      const totalInitial = mobilier + vaisselle + cuisine + decor + travaux + signage + caisse + stockInitial + fraisLegaux + marketing + imprevus;
+
       output.innerHTML = `
-        <h2>📊 Results</h2>
-        <p><strong>Gross Monthly Revenue:</strong> €${grossRevenue.toFixed(2)}</p>
-        <p><strong>Operational Costs (Fixed + Variable):</strong> €${operationalCosts.toFixed(2)}</p>
-        <p><strong>Taxable Profit:</strong> €${taxableProfit.toFixed(2)}</p>
-        <p><strong>Estimated Tax (29.5%):</strong> €${tax.toFixed(2)}</p>
-        <p><strong>Net Monthly Profit:</strong> €${netProfit.toFixed(2)}</p>
-        <p><strong>Reinvested (saved):</strong> €${reinvested.toFixed(2)}</p>
-        <p><strong>Distributable Profit:</strong> €${distributableProfit.toFixed(2)}</p>
-        <hr>
-        <h2>👤 Investor</h2>
-        <p><strong>Number of Shares:</strong> ${totalShares}</p>
-        <p><strong>Ownership (%):</strong> ${(ownership * 100).toFixed(2)}%</p>
-        <p><strong>Monthly Dividend:</strong> €${monthlyDividend.toFixed(2)}</p>
-        <p><strong>Annual Dividend:</strong> €${annualDividend.toFixed(2)}</p>
+        <h2>📊 Prévisionnel Mensuel (€)</h2>
+        <p><strong>Nombre de tables :</strong> ${tables}</p>
+        <p><strong>Clients par jour estimés :</strong> ${clientsPerDay}</p>
+        <p><strong>Chiffre d'affaires mensuel :</strong> €${grossRevenue.toFixed(2)}</p>
+        <p><strong>Coûts opérationnels totaux :</strong> €${operationalCosts.toFixed(2)}</p>
+        <p><strong>– dont CAPEX (charges fixes) :</strong> €${capex.toFixed(2)}</p>
+        <p><strong>Bénéfice imposable :</strong> €${taxableProfit.toFixed(2)}</p>
+        <p><strong>Impôt estimé (29.5%) :</strong> €${tax.toFixed(2)}</p>
+        <p><strong>Bénéfice net mensuel :</strong> €${netProfit.toFixed(2)}</p>
+        <p><strong>Réinvesti :</strong> €${reinvested.toFixed(2)}</p>
+        <p><strong>Bénéfice distribuable :</strong> €${distributableProfit.toFixed(2)}</p>
+
+        <h2>👤 Investisseur</h2>
+        <p><strong>Part détenue :</strong> ${(ownership * 100).toFixed(2)}%</p>
+        <p><strong>Dividende mensuel estimé :</strong> €${monthlyDividend.toFixed(2)}</p>
+        <p><strong>Dividende annuel estimé :</strong> €${annualDividend.toFixed(2)}</p>
+
+        <h2>🏗️ Prévisionnel Démarrage – Total : ${totalInitial.toLocaleString()} PEN (~${(totalInitial / 4).toLocaleString()} €)</h2>
+
+        <details open>
+          <summary>🪑 Mobilier – ${mobilier} PEN</summary>
+          <ul><li>Chaises et tables bois : ${costPerTable} PEN x ${tables}</li></ul>
+        </details>
+
+        <details>
+          <summary>🍽️ Vaisselle – ${vaisselle} PEN</summary>
+          <ul><li>Assiettes, verres, couverts : ${costPerCover} PEN x ${tables}</li></ul>
+        </details>
+
+        <details>
+          <summary>🍳 Cuisine – ${cuisine} PEN</summary>
+          <ul>
+            <li>Frigo : 1500 PEN</li>
+            <li>Blender + Extracteur : 600 PEN</li>
+            <li>Plancha / four : 800 PEN</li>
+            <li>Petits ustensiles : 1100 PEN</li>
+          </ul>
+        </details>
+
+        <details><summary>🎨 Décoration – ${decor} PEN</summary></details>
+        <details><summary>🔧 Travaux – ${travaux} PEN</summary></details>
+        <details><summary>🪧 Enseigne – ${signage} PEN</summary></details>
+        <details><summary>💻 Caisse – ${caisse} PEN</summary></details>
+        <details><summary>📦 Stock initial – ${stockInitial} PEN</summary></details>
+        <details><summary>📋 Frais légaux – ${fraisLegaux} PEN</summary></details>
+        <details><summary>📢 Marketing lancement – ${marketing} PEN</summary></details>
+        <details><summary>⚠️ Imprévus – ${imprevus} PEN</summary></details>
       `;
     }
 
     inputs.forEach(input => input.addEventListener("input", updateBP));
-    updateBP(); // initialize on load
+    updateBP();
   </script>
+  <footer style="text-align:center; margin-top:40px;">
+  <a href="https://www.jazzclublima.com" target="_blank" rel="noopener noreferrer">Back to home</a>
+</footer>
+
 </body>
 </html>
