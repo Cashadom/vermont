@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Petit Bistrot - French Cafeteria in Peru</title>
+    <title>◉ jazzclublima ◉</title>
     <style>
         * {
             margin: 0;
@@ -12,755 +12,1237 @@
         }
 
         body {
-            font-family: 'Inter', 'Helvetica Neue', sans-serif;
-            line-height: 1.6;
-            color: #2c3e50;
-            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .header {
-            text-align: center;
-            color: white;
-            margin-bottom: 40px;
-            padding: 120px 0 60px 0;
-            position: relative;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3)), 
-                        url('https://raw.githubusercontent.com/Cashadom/vermont/main/image32.png') center/cover no-repeat;
-                        
+            font-family: 'Courier New', monospace;
+            background: 
+                repeating-conic-gradient(
+                    from 0deg at 50% 50%,
+                    rgba(0, 0, 0, 0.15) 0deg 90deg,
+                    rgba(255, 255, 255, 0.15) 90deg 180deg,
+                    rgba(0, 0, 0, 0.15) 180deg 270deg,
+                    rgba(255, 255, 255, 0.15) 270deg 360deg
+                ),
+                url('https://i.ibb.co/MxBsNsG.jpg');
+            background-size: 60px 60px, cover;
+            background-position: center, center;
             background-attachment: fixed;
-            border-radius: 0 0 25px 25px;
-            overflow: hidden;
+            min-height: 100vh;
+            overflow-x: hidden;
+            cursor: none;
+            color: #caffc0;
+            position: relative;
         }
 
-        .header::before {
-            content: '';
-            position: absolute;
+        .smoke-overlay {
+            position: fixed;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(30, 41, 59, 0.6);
-            z-index: 0;
-        }
-
-        .header-content {
-            position: relative;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(
+                circle at 30% 70%,
+                rgba(255, 255, 255, 0.1) 0%,
+                transparent 20%
+            ),
+            radial-gradient(
+                circle at 70% 30%,
+                rgba(202, 255, 192, 0.05) 0%,
+                transparent 25%
+            ),
+            radial-gradient(
+                circle at 50% 50%,
+                rgba(255, 255, 255, 0.08) 0%,
+                transparent 30%
+            );
+            animation: smokeMove 20s infinite ease-in-out;
+            pointer-events: none;
             z-index: 1;
         }
 
-        .logo-container {
-            width: 100px;
-            height: 100px;
-            margin: 0 auto 25px;
-            background: linear-gradient(45deg, #dc2626, #b91c1c);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        @keyframes smokeMove {
+            0%, 100% { 
+                transform: translate(0, 0) scale(1);
+                opacity: 0.7;
+            }
+            25% { 
+                transform: translate(-20px, -30px) scale(1.1);
+                opacity: 0.4;
+            }
+            50% { 
+                transform: translate(30px, -20px) scale(0.9);
+                opacity: 0.8;
+            }
+            75% { 
+                transform: translate(-10px, 40px) scale(1.05);
+                opacity: 0.3;
+            }
+        }
+
+        .container {
             position: relative;
-        }
-
-        .coffee-cup {
-            font-size: 2.5rem;
-            color: white;
-            filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.3));
-        }
-
-        .nazca-pattern {
-            position: absolute;
-            top: -3px;
-            right: -3px;
-            width: 24px;
-            height: 24px;
-            background: #f59e0b;
-            border-radius: 50%;
+            min-height: 100vh;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            font-size: 12px;
+            padding: 20px;
+            z-index: 10;
         }
 
-        .header h1 {
-            font-size: 3rem;
-            font-weight: 600;
-            margin-bottom: 12px;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-            font-family: 'Inter', sans-serif;
-            letter-spacing: -0.5px;
+        .title {
+            font-size: 4em;
+            color: #caffc0;
+            text-shadow: 3px 3px 0 #356f2c, -3px -3px 0 #356f2c, 3px -3px 0 #356f2c, -3px 3px 0 #356f2c;
+            margin-bottom: 40px;
+            animation: memoryGlitch 4s infinite;
+            text-align: center;
+            letter-spacing: 5px;
         }
 
-        .header .tagline {
-            font-size: 1.2rem;
-            opacity: 0.85;
-            font-weight: 400;
-            letter-spacing: 3px;
-            text-transform: lowercase;
-            font-style: italic;
+        @keyframes memoryGlitch {
+            0%, 90%, 100% { transform: translate(0); filter: brightness(1); }
+            15% { transform: translate(-3px, 2px); filter: brightness(1.2); }
+            30% { transform: translate(2px, -3px); filter: brightness(0.8); }
+            45% { transform: translate(-2px, 3px); filter: brightness(1.1); }
+            60% { transform: translate(3px, -2px); filter: brightness(0.9); }
+            75% { transform: translate(-1px, 2px); filter: brightness(1.3); }
         }
 
-        .main-content {
-            background: white;
-            border-radius: 25px;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
-            overflow: hidden;
+        .memory-core {
+            background: rgba(10, 10, 10, 0.95);
+            border: 3px solid #caffc0;
+            padding: 40px;
+            border-radius: 0;
+            box-shadow: 0 0 20px #356f2c, inset 0 0 20px rgba(202, 255, 192, 0.1);
             margin-bottom: 30px;
             position: relative;
-            z-index: 2;
-            margin-top: -30px;
+            overflow: hidden;
+            max-width: 600px;
+            width: 100%;
         }
 
-        .hero-section {
-            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-            padding: 60px 40px;
-            text-align: center;
-            position: relative;
-        }
-
-        .hero-section::before {
+        .memory-core::before {
             content: '';
             position: absolute;
             top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, #1e293b, #dc2626, #b91c1c);
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(202, 255, 192, 0.2), transparent);
+            animation: scan 3s infinite;
         }
 
-        .hero-section h2 {
-            font-size: 2.2rem;
-            margin-bottom: 20px;
-            color: #1e293b;
-            font-family: 'Inter', sans-serif;
-            font-weight: 500;
-            letter-spacing: -0.3px;
+        @keyframes scan {
+            0% { left: -100%; }
+            100% { left: 100%; }
         }
 
-        .hero-section p {
-            font-size: 1.1rem;
+        .feed-title {
+            font-size: 1.8em;
+            margin-bottom: 25px;
+            text-align: center;
+            color: #caffc0;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .word-input {
+            width: 100%;
+            padding: 20px;
+            font-size: 1.4em;
+            border: 2px solid #caffc0;
+            background: transparent;
+            color: #caffc0;
+            font-family: 'Courier New', monospace;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            outline: none;
+        }
+
+        .word-input::placeholder {
+            color: #356f2c;
+            opacity: 0.8;
+        }
+
+        .word-input:focus {
+            box-shadow: 0 0 15px #caffc0;
+            animation: inputPulse 1.5s infinite;
+        }
+
+        @keyframes inputPulse {
+            0%, 100% { border-color: #caffc0; }
+            50% { border-color: #ffffff; }
+        }
+
+        .snail-playground {
+            background: rgba(0, 0, 0, 0.9);
+            border: 3px solid #caffc0;
+            padding: 30px;
+            position: relative;
+            width: 100%;
             max-width: 700px;
-            margin: 0 auto;
-            color: #475569;
-            line-height: 1.7;
-            font-weight: 400;
+            height: 450px;
+            overflow: hidden;
+            box-shadow: 0 0 30px #356f2c;
         }
 
-        .concept-grid {
+        .playground-title {
+            color: #caffc0;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .mnemonic-snail {
+            position: absolute;
+            font-size: 2.5em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.5s ease;
+            user-select: none;
+            z-index: 20;
+            animation: snailBlink 3s infinite;
+        }
+
+        @keyframes snailBlink {
+            0%, 90%, 100% { opacity: 1; }
+            95% { opacity: 0.3; }
+        }
+
+        .mnemonic-snail:hover {
+            transform: scale(1.3);
+            filter: drop-shadow(0 0 15px #caffc0);
+            animation: none;
+            opacity: 1;
+        }
+
+        .slime-trail {
+            position: absolute;
+            color: #356f2c;
+            font-size: 1.2em;
+            pointer-events: none;
+            opacity: 0.6;
+            z-index: 15;
+            animation: fadeTrail 8s forwards;
+        }
+
+        @keyframes fadeTrail {
+            0% { opacity: 0.6; }
+            100% { opacity: 0.1; }
+        }
+
+        .memory-output {
+            position: absolute;
+            top: 50px;
+            left: 20px;
+            right: 20px;
+            bottom: 100px;
+            color: #caffc0;
+            font-size: 0.9em;
+            overflow-y: auto;
+            opacity: 0.8;
+            white-space: pre-wrap;
+            z-index: 25;
+        }
+
+        .memory-log {
+            margin-bottom: 10px;
+            animation: typeIn 0.5s ease-out;
+        }
+
+        @keyframes typeIn {
+            from { opacity: 0; transform: translateX(-10px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .digested-word {
+            color: #ffffff;
+            font-weight: bold;
+            text-shadow: 0 0 5px #caffc0;
+        }
+
+        .status-bar {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(10, 10, 10, 0.9);
+            color: #caffc0;
+            padding: 15px;
+            font-family: monospace;
+            font-size: 0.9em;
+            border: 1px solid #356f2c;
+            max-width: 300px;
+            opacity: 0.9;
+            z-index: 100;
+        }
+
+        .floating-memory {
+            position: fixed;
+            color: rgba(202, 255, 192, 0.6);
+            font-size: 0.8em;
+            pointer-events: none;
+            animation: memoryFloat 6s infinite ease-in-out;
+            z-index: 1000;
+            text-transform: uppercase;
+        }
+
+        @keyframes memoryFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0; }
+            20%, 80% { opacity: 1; }
+            50% { transform: translateY(-30px) rotate(360deg); opacity: 0.8; }
+        }
+
+        .memory-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .particle {
+            position: absolute;
+            color: #356f2c;
+            font-size: 0.5em;
+            opacity: 0.3;
+            animation: drift 10s infinite linear;
+        }
+
+        @keyframes drift {
+            from { transform: translateY(100vh) rotate(0deg); }
+            to { transform: translateY(-100px) rotate(360deg); }
+        }
+
+        .glitch-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: repeating-linear-gradient(
+                90deg,
+                transparent 0px,
+                transparent 2px,
+                rgba(202, 255, 192, 0.03) 2px,
+                rgba(202, 255, 192, 0.03) 4px
+            );
+            z-index: 1;
+        }
+
+        .countdown-container {
+            background: rgba(10, 10, 10, 0.95);
+            border: 3px solid #ff6b6b;
+            padding: 30px;
+            margin: 20px 0;
+            text-align: center;
+            box-shadow: 0 0 25px rgba(255, 107, 107, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .countdown-title {
+            color: #ff6b6b;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            animation: countdown-pulse 2s infinite;
+        }
+
+        @keyframes countdown-pulse {
+            0%, 100% { text-shadow: 0 0 10px #ff6b6b; }
+            50% { text-shadow: 0 0 20px #ff6b6b, 0 0 30px #ff6b6b; }
+        }
+
+        .countdown-display {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 15px;
         }
 
-        .concept-left {
-            background: #1e293b;
-            color: white;
-            padding: 50px 40px;
+        .countdown-unit {
+            background: rgba(255, 107, 107, 0.1);
+            border: 2px solid #ff6b6b;
+            padding: 15px;
+            border-radius: 5px;
         }
 
-        .concept-right {
-            background: #dc2626;
-            color: white;
-            padding: 50px 40px;
+        .countdown-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #ffffff;
+            text-shadow: 0 0 10px #ff6b6b;
         }
 
-        .concept-section h3 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
-            letter-spacing: -0.2px;
+        .countdown-label {
+            font-size: 0.9em;
+            color: #ff6b6b;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .concept-section p {
-            font-size: 1.1rem;
-            line-height: 1.7;
-            margin-bottom: 20px;
+        .target-date {
+            color: #ffffff;
+            font-size: 1.2em;
+            margin-top: 15px;
+            opacity: 0.8;
         }
 
-        .highlight-box {
-            background: rgba(255,255,255,0.1);
-            padding: 25px;
-            border-radius: 15px;
-            margin: 25px 0;
-            backdrop-filter: blur(10px);
+        .testimony-container {
+            background: rgba(10, 10, 10, 0.95);
+            border: 3px solid #9b59b6;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 0 25px rgba(155, 89, 182, 0.3);
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .testimony-title {
+            color: #9b59b6;
+            font-size: 1.6em;
+            margin-bottom: 25px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .testimony-input {
+            width: 100%;
+            min-height: 120px;
+            padding: 15px;
+            font-size: 1em;
+            border: 2px solid #9b59b6;
+            background: rgba(155, 89, 182, 0.1);
+            color: #caffc0;
+            font-family: 'Courier New', monospace;
+            resize: vertical;
+            outline: none;
+            margin-bottom: 15px;
+        }
+
+        .testimony-input::placeholder {
+            color: rgba(155, 89, 182, 0.6);
+        }
+
+        .testimony-input:focus {
+            box-shadow: 0 0 15px rgba(155, 89, 182, 0.5);
+            border-color: #ffffff;
+        }
+
+        .testimony-submit {
+            background: #9b59b6;
+            color: #ffffff;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1em;
+            font-family: 'Courier New', monospace;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .testimony-submit:hover {
+            background: #8e44ad;
+            box-shadow: 0 0 15px rgba(155, 89, 182, 0.7);
+        }
+
+        .testimonies-list {
+            margin-top: 30px;
+            max-height: 400px;
+            overflow-y: auto;
+            border-top: 2px solid #9b59b6;
+            padding-top: 20px;
+        }
+
+        .testimony-item {
+            background: rgba(155, 89, 182, 0.05);
+            border-left: 3px solid #9b59b6;
+            padding: 15px;
+            margin-bottom: 15px;
+            position: relative;
+            animation: testimonyAppear 0.5s ease-out;
+        }
+
+        @keyframes testimonyAppear {
+            from { 
+                opacity: 0; 
+                transform: translateX(-20px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateX(0); 
+            }
+        }
+
+        .testimony-text {
+            color: #caffc0;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        .testimony-meta {
+            color: #9b59b6;
+            font-size: 0.8em;
+            text-align: right;
+            opacity: 0.7;
         }
 
         .menu-section {
-            padding: 60px 40px;
-            background: #fefefe;
+            background: rgba(10, 10, 10, 0.95);
+            border: 3px solid #f39c12;
+            padding: 40px;
+            margin: 20px 0;
+            box-shadow: 0 0 25px rgba(243, 156, 18, 0.3);
+            max-width: 800px;
+            width: 100%;
         }
 
         .menu-section h2 {
+            color: #f39c12;
+            font-size: 2.2em;
             text-align: center;
-            font-size: 2.2rem;
-            color: #1e293b;
-            margin-bottom: 40px;
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
-            letter-spacing: -0.3px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 0 0 15px #f39c12;
         }
 
         .menu-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-            margin-top: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
         }
 
         .menu-category {
-            background: white;
-            border-radius: 16px;
-            padding: 30px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-            border-top: 3px solid #dc2626;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .menu-category:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 28px rgba(0,0,0,0.1);
+            background: rgba(243, 156, 18, 0.1);
+            border: 2px solid #f39c12;
+            padding: 25px;
+            border-radius: 5px;
         }
 
         .menu-category h3 {
-            color: #1e293b;
-            margin-bottom: 18px;
-            font-size: 1.4rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 600;
-            letter-spacing: -0.2px;
+            color: #f39c12;
+            font-size: 1.4em;
+            margin-bottom: 20px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         .menu-category .icon {
-            font-size: 1.8rem;
+            font-size: 1.5em;
+            margin-right: 10px;
         }
 
         .menu-item {
-            margin-bottom: 15px;
-            padding: 10px 0;
-            border-bottom: 1px solid #f3f4f6;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(243, 156, 18, 0.3);
         }
 
         .menu-item:last-child {
             border-bottom: none;
+            margin-bottom: 0;
         }
 
         .menu-item h4 {
-            color: #374151;
-            font-size: 1.1rem;
-            margin-bottom: 5px;
+            color: #ffffff;
+            font-size: 1.1em;
+            margin-bottom: 8px;
+            text-transform: capitalize;
+            letter-spacing: 1px;
         }
 
         .menu-item p {
-            color: #6b7280;
-            font-size: 0.95rem;
-            font-style: italic;
+            color: #caffc0;
+            font-size: 0.9em;
+            line-height: 1.4;
+            opacity: 0.9;
         }
 
-        .ad-banner {
+        .nutrition-section {
+            background: rgba(10, 10, 10, 0.95);
+            border: 3px solid #e74c3c;
+            padding: 40px;
+            margin: 20px 0;
+            box-shadow: 0 0 25px rgba(231, 76, 60, 0.3);
+            max-width: 700px;
             width: 100%;
-            margin: 40px 0;
+        }
+
+        .nutrition-title {
+            color: #e74c3c;
+            font-size: 2em;
             text-align: center;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 0 0 15px #e74c3c;
         }
 
-        .ad-banner img {
-            max-width: 100%;
-            border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        .nutrition-content {
+            color: #caffc0;
+            line-height: 1.6;
+            font-size: 1em;
         }
 
-        .values-section {
-            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-            color: white;
-            padding: 60px 40px;
-            text-align: center;
+        .nutrition-content h3 {
+            color: #ffffff;
+            font-size: 1.3em;
+            margin: 20px 0 10px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .values-section h2 {
-            font-size: 2.2rem;
-            margin-bottom: 35px;
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
-            letter-spacing: -0.3px;
+        .nutrition-content ul {
+            list-style: none;
+            padding-left: 0;
         }
 
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
+        .nutrition-content li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
         }
 
-        .value-item {
-            background: rgba(255,255,255,0.1);
-            padding: 30px;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            transition: transform 0.3s ease;
+        .nutrition-content li::before {
+            content: "🐌";
+            position: absolute;
+            left: 0;
+            top: 0;
         }
 
-        .value-item:hover {
-            transform: scale(1.05);
+        .hidden-terms {
+            position: fixed;
+            bottom: 5px;
+            right: 5px;
+            opacity: 0.01;
+            font-size: 8px;
+            color: rgba(255, 255, 255, 0.01);
+            text-decoration: none;
+            transition: all 2s ease;
+            z-index: 1000;
+            pointer-events: auto;
         }
 
-        .value-item .icon {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
+        .hidden-terms.revealed {
+            opacity: 0.7;
+            font-size: 12px;
+            color: #caffc0;
+            text-shadow: 0 0 5px #caffc0;
+        }
+
+        .hidden-terms:hover {
+            opacity: 1 !important;
+            color: #ffffff !important;
+        }
+
+        .secret-image {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 400px;
+            max-height: 300px;
+            filter: blur(20px);
+            opacity: 0;
+            transition: all 3s ease;
+            z-index: 999;
+            pointer-events: none;
+            border: 3px solid rgba(202, 255, 192, 0.3);
+            box-shadow: 0 0 30px rgba(202, 255, 192, 0.2);
+        }
+
+        .secret-image.revealed {
+            filter: blur(0px);
+            opacity: 0.9;
+            pointer-events: auto;
+        }
+
+        .secret-image img {
+            width: 100%;
+            height: auto;
             display: block;
         }
 
-        .value-item h4 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
+        .secret-image.fade-out {
+            opacity: 0;
+            filter: blur(10px);
         }
 
-        .ambiance-section {
-            padding: 60px 40px;
-            background: #fef7ed;
-        }
-
-        .ambiance-section h2 {
-            text-align: center;
-            font-size: 2.2rem;
-            color: #1e293b;
-            margin-bottom: 35px;
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
-            letter-spacing: -0.3px;
-        }
-
-        .color-palette {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin: 40px 0;
-            flex-wrap: wrap;
-        }
-
-        .color-swatch {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 0.8rem;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-
-        .color-navy { background: #1e293b; }
-        .color-cream { background: #fef7ed; color: #1e293b; }
-        .color-terracotta { background: #dc2626; }
-        .color-gold { background: #d97706; }
-
-        .footer {
-            text-align: center;
-            color: white;
-            padding: 40px;
-            font-size: 1rem;
-            opacity: 0.9;
-            background: rgba(0,0,0,0.2);
-            border-top: 1px solid #f59e0b;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
-
-        .footer-link {
-            color: #f59e0b;
-            text-decoration: none;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-            padding: 5px 10px;
-            border-radius: 4px;
-        }
-
-        .footer-link:hover {
-            color: white;
-            background: rgba(245,158,11,0.2);
-            text-decoration: none;
-            transform: translateY(-2px);
-        }
-
-        .cta-section {
-            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
-            color: white;
-            padding: 50px 40px;
-            text-align: center;
-        }
-
-        .cta-section h2 {
-            font-size: 2rem;
-            margin-bottom: 18px;
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
-            letter-spacing: -0.2px;
-        }
-
-        .cta-section p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            opacity: 0.95;
-        }
-
-        .location-badge {
-            background: rgba(255,255,255,0.2);
-            padding: 15px 30px;
-            border-radius: 50px;
-            display: inline-block;
-            font-size: 1.1rem;
-            font-weight: 500;
-            backdrop-filter: blur(10px);
-        }
-
-        @media (max-width: 768px) {
-            .header {
-                padding: 80px 0 40px 0;
-                background-attachment: scroll;
-            }
-            
-            .header h1 {
-                font-size: 2.2rem;
-            }
-            
-            .concept-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .menu-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .hero-section, .menu-section, .values-section, .ambiance-section {
-                padding: 35px 25px;
-            }
-
-            .footer {
-                padding: 30px 20px;
-            }
-            
-            .footer-links {
-                gap: 15px;
-                margin-top: 15px;
-            }
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .floating {
-            animation: float 3s ease-in-out infinite;
+        .hidden-youtube {
+            position: fixed;
+            top: -200px;
+            left: -200px;
+            width: 1px;
+            height: 1px;
+            opacity: 0;
+            pointer-events: none;
+            z-index: -1;
         }
     </style>
 </head>
 <body>
+    <div class="smoke-overlay"></div>
+    <div class="glitch-overlay"></div>
+    <div class="memory-particles" id="particles"></div>
+    
+    <!-- Hidden Elements -->
+    <a href="https://jazzclublima.com/terms" class="hidden-terms" id="hiddenTerms">terms</a>
+    <div class="secret-image" id="secretImage">
+        <img src="https://i.ibb.co/BKFy5XzC/Web-Photo-Editor.jpg" alt="Secret Revealed">
+    </div>
+    
+    <!-- Hidden YouTube Player -->
+    <iframe class="hidden-youtube" id="hiddenYoutube" 
+            src="https://www.youtube.com/embed/1VDlOJygP7s?enablejsapi=1&autoplay=0&controls=0&modestbranding=1&rel=0&showinfo=0&fs=0&cc_load_policy=0&iv_load_policy=3&autohide=1" 
+            frameborder="0" 
+            allow="autoplay; encrypted-media">
+    </iframe>
+    
     <div class="container">
-        <header class="header">
-            <div class="header-content">
-                <div class="logo-container floating">
-                    <div class="coffee-cup">☕</div>
-                    <div class="nazca-pattern">⚹</div>
-                </div>
-                <h1>Petit Bistrot</h1>
-                <p class="tagline">Cafetería</p>
-            </div>
-        </header>
-
+        <h1 class="title">◉ jazzclublima ◉</h1>
         
+        <!-- Countdown Section -->
+        <div class="countdown-container">
+            <div class="countdown-title">⟨ TEMPORAL CONVERGENCE ⟩</div>
+            <div class="countdown-display" id="countdownDisplay">
+                <div class="countdown-unit">
+                    <div class="countdown-number" id="days">000</div>
+                    <div class="countdown-label">Days</div>
+                </div>
+                <div class="countdown-unit">
+                    <div class="countdown-number" id="hours">00</div>
+                    <div class="countdown-label">Hours</div>
+                </div>
+                <div class="countdown-unit">
+                    <div class="countdown-number" id="minutes">00</div>
+                    <div class="countdown-label">Minutes</div>
+                </div>
+                <div class="countdown-unit">
+                    <div class="countdown-number" id="seconds">00</div>
+                    <div class="countdown-label">Seconds</div>
+                </div>
+            </div>
+            <div class="target-date">07/07/2027 - The Convergence Begins</div>
+        </div>
+        
+        <div class="memory-core">
+            <div class="feed-title">⟨ FEED THE MEMORY ⟩</div>
+            <input type="text" class="word-input" id="memoryInput" placeholder="ENTER A WORD..." maxlength="30" autofocus>
+        </div>
 
-        <main class="main-content">
-            <section class="hero-section">
-                <h2>A French Soul in the Heart of Peru</h2>
-                <p>Experience the warmth of Parisian bistros blended with the vibrant authenticity of Peruvian culture. Petit Bistrot offers an artisanal escape where French culinary traditions meet local warmth in a space designed for both gourmet breaks and casual chic moments.</p>
-            </section>
+        <div class="snail-playground">
+            <div class="playground-title">🐌 MNEMONIC SNAIL SYSTEM 🐌</div>
+            <div class="memory-output" id="memoryOutput"></div>
+        </div>
 
-            <section class="concept-grid">
-                <div class="concept-left concept-section">
-                    <h3>🇫🇷 The French Experience</h3>
-                    <p>Authentic Parisian bistro charm with classic French staples: buttery croissants, perfectly crafted croque-monsieurs, and the timeless elegance of French café culture.</p>
-                    <div class="highlight-box">
-                        <strong>Signature French Classics:</strong><br>
-                        • Traditional Buckwheat Galettes<br>
-                        • Artisanal Sourdough Tartines<br>
-                        • Homemade French Toast
+        <!-- Testimony Section -->
+        <div class="testimony-container">
+            <div class="testimony-title">⟨ ANONYMOUS TESTIMONIES ⟩</div>
+            <textarea class="testimony-input" id="testimonyInput" placeholder="SHARE YOUR MEMORY ANONYMOUSLY...
+
+Your words will remain here forever, 
+archived in the digital consciousness..."></textarea>
+            <button class="testimony-submit" id="testimonySubmit">SUBMIT TESTIMONY</button>
+            <div class="testimonies-list" id="testimoniesList"></div>
+        </div>
+
+        <!-- Menu Section -->
+        <section class="menu-section">
+            <h2>Lima Jazz Club - 19th Century Escargot Menu</h2>
+            <div class="menu-grid">
+                <!-- Escargot Classics -->
+                <div class="menu-category">
+                    <h3><span class="icon">🐌</span> Escargot Classics</h3>
+                    <div class="menu-item">
+                        <h4>Escargots à la Bourguignonne</h4>
+                        <p>Tender snails baked with garlic, parsley, and butter — a timeless French delicacy.</p>
+                    </div>
+                    <div class="menu-item">
+                        <h4>Escargots au Vin Rouge</h4>
+                        <p>Slow-braised in red Burgundy wine, shallots, and herbs of Provence.</p>
+                    </div>
+                    <div class="menu-item">
+                        <h4>Escargots en Croûte</h4>
+                        <p>Snails enveloped in a delicate puff pastry, served golden and crisp.</p>
                     </div>
                 </div>
-                <div class="concept-right concept-section">
-                    <h3>🇵🇪 The Peruvian Touch</h3>
-                    <p>Born in Peru, our concept celebrates local ingredients and cultural warmth. From Andean coffee infusions to Nazca-inspired design elements, we honor our Peruvian roots.</p>
-                    <div class="highlight-box">
-                        <strong>Peruvian Influences:</strong><br>
-                        • Andean Coffee with cinnamon & spice<br>
-                        • Muña and lemongrass herbal teas<br>
-                        • Nazca art-inspired logo design
+                <!-- Refined Interpretations -->
+                <div class="menu-category">
+                    <h3><span class="icon">🍷</span> Refined Interpretations</h3>
+                    <div class="menu-item">
+                        <h4>Escargots au Champagne</h4>
+                        <p>A noble pairing of snails with a light Champagne cream sauce.</p>
+                    </div>
+                    <div class="menu-item">
+                        <h4>Escargots à la Truffe</h4>
+                        <p>Delicately perfumed with black truffle essence, evoking Parisian grandeur.</p>
+                    </div>
+                    <div class="menu-item">
+                        <h4>Escargots Provençaux</h4>
+                        <p>Flavored with olive oil, tomato, and wild thyme, inspired by the southern sun.</p>
                     </div>
                 </div>
-            </section>
+                <!-- Victorian Desserts -->
+                <div class="menu-category">
+                    <h3><span class="icon">🍮</span> Sweet 19th-Century Inspirations</h3>
+                    <div class="menu-item">
+                        <h4>Madeleines de Commercy</h4>
+                        <p>Soft shell-shaped cakes beloved by poets and aristocrats alike.</p>
+                    </div>
+                    <div class="menu-item">
+                        <h4>Caramelized Pear Tarte</h4>
+                        <p>A rustic orchard pie glazed with golden sugar and butter.</p>
+                    </div>
+                    <div class="menu-item">
+                        <h4>Absinthe Sorbet</h4>
+                        <p>A daring, refreshing tribute to the "Green Fairy" of Parisian salons.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-            <section class="menu-section">
-                <h2>Our Artisanal Menu</h2>
+        <!-- Nutrition Section -->
+        <div class="nutrition-section">
+            <div class="nutrition-title">⟨ THE NUTRITIONAL WISDOM OF ESCARGOT ⟩</div>
+            <div class="nutrition-content">
+                <p>Beyond their culinary mystique, escargots represent one of nature's most remarkable nutritional achievements. These humble gastropods carry within their shells a treasure trove of essential nutrients that have sustained human civilizations for millennia.</p>
                 
-                <!-- Boissons en premier -->
-                <div class="menu-grid">
-                    <!-- Cafés Classiques -->
-                    <div class="menu-category">
-                        <h3><span class="icon">☕</span>Classic Coffees</h3>
-                        <div class="menu-item">
-                            <h4>Espresso</h4>
-                            <p>Strong and aromatic Italian-style coffee</p>
-                        </div>
-                        <div class="menu-item">
-                            <h4>Café au Lait</h4>
-                            <p>Traditional French coffee with steamed milk</p>
-                        </div>
-                        <div class="menu-item">
-                            <h4>Macchiato</h4>
-                            <p>Espresso with a dash of foamed milk</p>
-                        </div>
-                        <div class="menu-item">
-                            <h4>Mocha</h4>
-                            <p>Espresso with chocolate and steamed milk</p>
-                        </div>
-                    </div>
+                <h3>Protein Powerhouse</h3>
+                <p>Escargot delivers an exceptional protein profile, containing all nine essential amino acids required by the human body. With approximately 16-20 grams of high-quality protein per 100 grams, these mollusks rival traditional meat sources while offering superior digestibility.</p>
+                
+                <h3>Essential Minerals</h3>
+                <ul>
+                    <li><strong>Iron:</strong> Critical for oxygen transport and energy metabolism</li>
+                    <li><strong>Magnesium:</strong> Supports muscle function and nervous system health</li>
+                    <li><strong>Phosphorus:</strong> Essential for bone strength and cellular repair</li>
+                    <li><strong>Zinc:</strong> Boosts immune function and wound healing</li>
+                    <li><strong>Selenium:</strong> Powerful antioxidant protecting against cellular damage</li>
+                </ul>
+                
+                <h3>Vitamins & Health Benefits</h3>
+                <p>Rich in Vitamin B12, escargot supports nervous system function and red blood cell formation. The presence of Vitamin E provides antioxidant protection, while their low fat content (less than 2%) makes them an ideal choice for heart-conscious gastronomy.</p>
+                
+                <h3>Sustainable Nutrition</h3>
+                <p>Escargot farming requires minimal resources compared to traditional livestock, producing exceptional nutrition with a fraction of the environmental impact. These creatures transform simple vegetation into complete, bioavailable nutrients — nature's own alchemy at work.</p>
+                
+                <p><em>In the grand theater of nutrition, the humble snail performs as both star and supporting cast, delivering sustenance that nourishes body, mind, and soul.</em></p>
+            </div>
+        </div>
+    </div>
 
-                    <!-- Cafés Signature -->
-                    <div class="menu-category">
-                        <h3><span class="icon">✨</span>Signature Coffees</h3>
-                        <div class="menu-item">
-                            <h4>Andean Coffee</h4>
-                            <p>Local coffee infused with cinnamon, citrus & warming spices</p>
-                        </div>
-                        <div class="menu-item">
-                            <h4>Vanilla Spice Latte</h4>
-                            <p>Espresso with vanilla, spices and steamed milk</p>
-                        </div>
-                        <div class="menu-item">
-                            <h4>Caramel Macadamia</h4>
-                            <p>Rich coffee with caramel and macadamia nut flavors</p>
-                        </div>
-                    </div>
-
-                    <!-- Thés -->
-                    <div class="menu-category">
-                        <h3><span class="icon">🍃</span>Tea Selection</h3>
-                        <div class="menu-item">
-                            <h4>Traveller's Tea</h4>
-                            <p>Refreshing blend of mint & ginger</p>
-                        </div>
-                        <div class="menu-item">
-                            <h4>Andean Herbal</h4>
-                            <p>Traditional muña, lemongrass & chamomile blend</p>
-                        </div>
-                        <div class="menu-item">
-                            <h4>Atlas Tea</h4>
-                            <p>Black tea with sweet mint, Mediterranean-inspired</p>
-                        </div>
-                        <div class="menu-item">
-                            <h4>Matcha Latte</h4>
-                            <p>Japanese green tea powder with steamed milk</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Bannière pub -->
-                <div class="ad-banner">
-                    <img src="https://raw.githubusercontent.com/Cashadom/vermont/main/ads.png" alt="Special Offer">
-                </div>
-
-                <!-- Plats salés -->
-                <div class="menu-grid">
-                    <div class="menu-category">
-                        <h3><span class="icon">🧀</span>Savory Bistro Staples</h3>
-                        <div class="menu-item">
-                            <h4>Croque-Monsieur with Béchamel</h4>
-                            <p>Classic French ham and cheese sandwich with creamy béchamel sauce</p>
-                        </div>
-                        <div class="menu-item">
-                            <h4>Sourdough Tartine</h4>
-                            <p>Artisanal bread with goat cheese, honey & walnuts</p>
-                        </div>
-                        <div class="menu-item">
-                            <h4>Buckwheat Galettes</h4>
-                            <p>Traditional savory crêpes with 5 gourmet options including La Complète</p>
-                        </div>
-                        <div class="menu-item">
-                            <h4>Parisian Ham & Butter Baguette</h4>
-                            <p>Simple perfection with premium French ingredients</p>
-                        </div>
-                    </div>
-
-                    <div class="menu-category">
-                        <h3><span class="icon">🫓</span>House-Made Piadinas</h3>
-                        <div class="menu-item">
-                            <h4>Rosemary Flatbread</h4>
-                            <p>Fresh dough infused with rosemary water, folded into savory wraps</p>
-                        </div>
-                        <div class="menu-item">
-                            <h4>Mediterranean Combos</h4>
-                            <p>Italian-inspired ingredients with grilled chicken or smoked salmon</p>
-                        </div>
-                        <div class="menu-item">
-                            <h4>Vegetarian Options</h4>
-                            <p>Fresh, seasonal vegetable combinations</p>
-                        </div>
-                    </div>
-
-                    <!-- Plats sucrés -->
-                    <div class="menu-category">
-                        <h3><span class="icon">🍬</span>Sweet Treats</h3>
-                        <div class="menu-item">
-                            <h4>French Toast</h4>
-                            <p>Served with seasonal berry coulis</p>
-                        </div>
-                        <div class="menu-item">
-                            <h4>Sweet Crêpes</h4>
-                            <p>Nutella, brown sugar, whipped cream variations</p>
-                        </div>
-                        <div class="menu-item">
-                            <h4>Homemade Tart of the Day</h4>
-                            <p>Fresh seasonal selections made daily</p>
-                        </div>
-                        <div class="menu-item">
-                            <h4>Chocolate Croissant</h4>
-                            <p>Buttery, flaky pastry with rich chocolate filling</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="ambiance-section">
-                <h2>Design & Atmosphere</h2>
-                <p style="text-align: center; font-size: 1.1rem; color: #475569; margin-bottom: 25px; font-weight: 400;">
-                    Clean, minimalist design with warm touches creating the perfect balance between sophistication and comfort
-                </p>
-                <div class="color-palette">
-                    <div class="color-swatch color-navy">Deep Navy<br>Sophistication</div>
-                    <div class="color-swatch color-cream">Warm Cream<br>Comfort</div>
-                    <div class="color-swatch color-terracotta">Rich Red<br>Energy</div>
-                    <div class="color-swatch color-gold">Warm Gold<br>Premium</div>
-                </div>
-                <p style="text-align: center; font-size: 1.1rem; color: #6b7280; margin-top: 30px;">
-                    Our circular logo features a stylized coffee cup inspired by Nazca art, embodying warmth, simplicity, and quality
-                </p>
-            </section>
-
-            <section class="values-section">
-                <h2>Our Values & Philosophy</h2>
-                <div class="values-grid">
-                    <div class="value-item">
-                        <span class="icon">🎨</span>
-                        <h4>Artisanal Craftsmanship</h4>
-                        <p>Every dish is lovingly prepared by hand using traditional techniques and premium ingredients</p>
-                    </div>
-                    <div class="value-item">
-                        <span class="icon">🤝</span>
-                        <h4>Warm Hospitality</h4>
-                        <p>Authentic bistro-style service that makes every guest feel welcome and valued</p>
-                    </div>
-                    <div class="value-item">
-                        <span class="icon">🌍</span>
-                        <h4>Cultural Fusion</h4>
-                        <p>Celebrating the beautiful blend of French elegance with Peruvian warmth and Mediterranean touches</p>
-                    </div>
-                    <div class="value-item">
-                        <span class="icon">✨</span>
-                        <h4>Refined Comfort</h4>
-                        <p>Creating spaces that are both sophisticated and cozy, perfect for any moment of the day</p>
-                    </div>
-                </div>
-            </section>
-
-            <section class="cta-section">
-                <h2>Experience Petit Bistrot</h2>
-                <p>Where French tradition meets Peruvian heart in every cup, every bite, every moment.</p>
-                <div class="location-badge">
-                    🧭 Born in Peru • French at Heart
-                </div>
-            </section>
-        </main>
-
-        <footer class="footer">
-            <p>&copy; 2025 Petit Bistrot - French Cafeteria • Peru</p>
-            <p style="margin-top: 10px; font-style: italic;">
-                "Warmth, Simplicity, Quality"
-            </p>
-            
-          <div class="footer-links">
-    <a href="terms.html" class="footer-link">Terms</a>
-    <a href="generateur.html" class="footer-link">Plan</a>
-    <a href="#contact" class="footer-link">Contact</a>
-</div>
+    <div class="status-bar" id="statusBar">
+        > memory_system.exe<br>
+        > host_connected<br>
+        > awaiting_input...
+    </div>
 
     <script>
-        // Add scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+        // Global variables
+        let snailX = 200;
+        let snailY = 200;
+        let snailTrail = [];
+        let userWords = [];
+        let memoryLog = [];
+        let snailElement = null;
+        let isDigesting = false;
+        let testimonies = [];
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
+        // DOM elements
+        const memoryInput = document.getElementById('memoryInput');
+        const memoryOutput = document.getElementById('memoryOutput');
+        const statusBar = document.getElementById('statusBar');
+        const playground = document.querySelector('.snail-playground');
+        const testimonyInput = document.getElementById('testimonyInput');
+        const testimonySubmit = document.getElementById('testimonySubmit');
+        const testimoniesList = document.getElementById('testimoniesList');
+        const hiddenTerms = document.getElementById('hiddenTerms');
+        const secretImage = document.getElementById('secretImage');
+        const hiddenYoutube = document.getElementById('hiddenYoutube');
 
-        document.querySelectorAll('.menu-category, .value-item').forEach(element => {
-            element.style.opacity = '0';
-            element.style.transform = 'translateY(30px)';
-            element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-            observer.observe(element);
-        });
+        // Secret word tracking
+        let typedSequence = '';
+        const secretWord = 'snail';
+        let secretRevealed = false;
+        let audioStarted = false;
 
-        // Add hover effects to color swatches
-        document.querySelectorAll('.color-swatch').forEach(swatch => {
-            swatch.addEventListener('mouseenter', () => {
-                swatch.style.transform = 'scale(1.1) rotate(5deg)';
-                swatch.style.transition = 'transform 0.3s ease';
-            });
-            
-            swatch.addEventListener('mouseleave', () => {
-                swatch.style.transform = 'scale(1) rotate(0deg)';
-            });
-        });
+        // Countdown elements
+        const daysElement = document.getElementById('days');
+        const hoursElement = document.getElementById('hours');
+        const minutesElement = document.getElementById('minutes');
+        const secondsElement = document.getElementById('seconds');
 
-        // Animate menu items on page load
-        window.addEventListener('load', () => {
-            const menuItems = document.querySelectorAll('.menu-item');
-            menuItems.forEach((item, index) => {
+        // Target date: July 7, 2027
+        const targetDate = new Date('2027-07-07T00:00:00').getTime();
+
+        // Memory fragments for ambient text
+        const memoryFragments = [
+            "synaptic drift",
+            "neural pathways",
+            "memory fragments",
+            "consciousness.exe",
+            "data persistence",
+            "cognitive overflow",
+            "mnemonic traces"
+        ];
+
+        // Word transformation algorithms
+        const digestAlgorithms = [
+            word => word.split('').reverse().join(''), // Reverse
+            word => word.replace(/[aeiou]/gi, '~'), // Replace vowels
+            word => word + '...', // Add ellipsis
+            word => word.toUpperCase(), // Uppercase
+            word => word.substring(0, Math.ceil(word.length / 2)), // Truncate
+            word => word.split('').map(c => String.fromCharCode(c.charCodeAt(0) + 1)).join(''), // Caesar cipher
+            word => word.replace(/./g, (char, index) => index % 2 ? char.toUpperCase() : char.toLowerCase()) // Alternate case
+        ];
+
+        // Initialize the mnemonic snail
+        function createMnemonicSnail() {
+            snailElement = document.createElement('div');
+            snailElement.className = 'mnemonic-snail';
+            snailElement.innerHTML = '@_ö';
+            snailElement.style.left = snailX + 'px';
+            snailElement.style.top = snailY + 'px';
+            playground.appendChild(snailElement);
+
+            // Click interaction
+            snailElement.addEventListener('click', () => {
+                createMemoryBurst();
+                snailElement.style.transform = 'scale(1.5) rotate(360deg)';
                 setTimeout(() => {
-                    item.style.opacity = '1';
-                    item.style.transform = 'translateX(0)';
-                }, index * 100);
+                    snailElement.style.transform = '';
+                }, 500);
             });
+
+            // Start autonomous movement
+            setTimeout(moveSnailRandomly, 3000);
+        }
+
+        // Move snail randomly (slow, like real snails)
+        function moveSnailRandomly() {
+            if (!snailElement) return;
+
+            const playgroundRect = playground.getBoundingClientRect();
+            const maxX = playgroundRect.width - 60;
+            const maxY = playgroundRect.height - 60;
+
+            const newX = snailX + (Math.random() * 80 - 40);
+            const newY = snailY + (Math.random() * 80 - 40);
+
+            snailX = Math.max(20, Math.min(maxX, newX));
+            snailY = Math.max(60, Math.min(maxY, newY));
+
+            snailElement.style.left = snailX + 'px';
+            snailElement.style.top = snailY + 'px';
+
+            // Create slime trail
+            createSlimeTrail();
+
+            // Continue movement (snails are slow!)
+            setTimeout(moveSnailRandomly, 4000 + Math.random() * 6000);
+        }
+
+        // Create slime trail behind snail
+        function createSlimeTrail() {
+            const trail = document.createElement('div');
+            trail.className = 'slime-trail';
+            trail.innerHTML = '~';
+            trail.style.left = (snailX - 15) + 'px';
+            trail.style.top = (snailY + 10) + 'px';
+            playground.appendChild(trail);
+
+            // Remove trail after animation
+            setTimeout(() => trail.remove(), 8000);
+        }
+
+        // Digest word using random algorithm
+        function digestWord(word) {
+            const algorithm = digestAlgorithms[Math.floor(Math.random() * digestAlgorithms.length)];
+            return algorithm(word);
+        }
+
+        // Type text with typewriter effect
+        function typeText(text, element, speed = 50, callback = null) {
+            let i = 0;
+            const currentContent = element.innerHTML;
+            
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML = currentContent + text.substring(0, i + 1);
+                    i++;
+                    setTimeout(type, speed);
+                } else if (callback) {
+                    setTimeout(callback, 500);
+                }
+            }
+            type();
+        }
+
+        // Add memory log entry
+        function addMemoryLog(text, isDigested = false) {
+            const logEntry = document.createElement('div');
+            logEntry.className = 'memory-log';
+            if (isDigested) {
+                logEntry.innerHTML = `>> <span class="digested-word">${text}</span>`;
+            } else {
+                logEntry.innerHTML = `> ${text}`;
+            }
+            memoryOutput.appendChild(logEntry);
+            memoryOutput.scrollTop = memoryOutput.scrollHeight;
+        }
+
+        // Create floating memory text
+        function createFloatingMemory(text) {
+            const floating = document.createElement('div');
+            floating.className = 'floating-memory';
+            floating.textContent = text;
+            floating.style.left = Math.random() * window.innerWidth + 'px';
+            floating.style.top = Math.random() * window.innerHeight + 'px';
+            document.body.appendChild(floating);
+            
+            setTimeout(() => floating.remove(), 6000);
+        }
+
+        // Create memory burst effect
+        function createMemoryBurst() {
+            for (let i = 0; i < 5; i++) {
+                setTimeout(() => {
+                    const fragment = memoryFragments[Math.floor(Math.random() * memoryFragments.length)];
+                    createFloatingMemory(fragment);
+                }, i * 200);
+            }
+        }
+
+        // Update countdown
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance > 0) {
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                daysElement.textContent = days.toString().padStart(3, '0');
+                hoursElement.textContent = hours.toString().padStart(2, '0');
+                minutesElement.textContent = minutes.toString().padStart(2, '0');
+                secondsElement.textContent = seconds.toString().padStart(2, '0');
+
+                // Glitch effect when close to convergence
+                if (days < 30) {
+                    const countdownContainer = document.querySelector('.countdown-container');
+                    if (Math.random() < 0.1) {
+                        countdownContainer.style.filter = 'hue-rotate(' + Math.random() * 360 + 'deg)';
+                        setTimeout(() => countdownContainer.style.filter = '', 200);
+                    }
+                }
+            } else {
+                daysElement.textContent = '000';
+                hoursElement.textContent = '00';
+                minutesElement.textContent = '00';
+                secondsElement.textContent = '00';
+                
+                // Convergence reached effect
+                document.querySelector('.countdown-title').textContent = '⟨ CONVERGENCE ACHIEVED ⟩';
+            }
+        }
+
+        // Add testimony
+        function addTestimony(text) {
+            const timestamp = new Date().toLocaleString();
+            const testimony = {
+                text: text,
+                timestamp: timestamp,
+                id: Date.now()
+            };
+            
+            testimonies.unshift(testimony); // Add to beginning
+            renderTestimonies();
+            
+            // Create floating effect for new testimony
+            createFloatingMemory('testimony archived');
+        }
+
+        // Render all testimonies
+        function renderTestimonies() {
+            testimoniesList.innerHTML = '';
+            testimonies.forEach(testimony => {
+                const testimonyDiv = document.createElement('div');
+                testimonyDiv.className = 'testimony-item';
+                testimonyDiv.innerHTML = `
+                    <div class="testimony-text">${testimony.text}</div>
+                    <div class="testimony-meta">Archived: ${testimony.timestamp}</div>
+                `;
+                testimoniesList.appendChild(testimonyDiv);
+            });
+        }
+
+        // Create ambient particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            
+            setInterval(() => {
+                if (Math.random() < 0.3) {
+                    const particle = document.createElement('div');
+                    particle.className = 'particle';
+                    particle.textContent = ['0', '1', '~', '•', '○'][Math.floor(Math.random() * 5)];
+                    particle.style.left = Math.random() * window.innerWidth + 'px';
+                    particle.style.animationDuration = (8 + Math.random() * 4) + 's';
+                    particlesContainer.appendChild(particle);
+                    
+                    setTimeout(() => particle.remove(), 12000);
+                }
+            }, 1000);
+        }
+
+        // Handle user input
+        memoryInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && memoryInput.value.trim() && !isDigesting) {
+                const inputWord = memoryInput.value.trim();
+                userWords.push(inputWord);
+                
+                // Display user input
+                addMemoryLog(inputWord);
+                memoryInput.value = '';
+                
+                // Update status
+                isDigesting = true;
+                updateStatusBar(`> processing: ${inputWord}<br>> digestion_started<br>> eta: 3000ms`);
+                
+                // Create floating effect
+                createFloatingMemory(inputWord);
+                
+                // Hide secret image when typing in feed the memory
+                if (secretRevealed && secretImage.classList.contains('revealed')) {
+                    secretImage.classList.add('fade-out');
+                    setTimeout(() => {
+                        secretImage.classList.remove('fade-out');
+                    }, 3000);
+                }
+                
+                // Snail digestion process (slow!)
+                setTimeout(() => {
+                    const digestedWord = digestWord(inputWord);
+                    addMemoryLog(digestedWord, true);
+                    createFloatingMemory(`digested: ${digestedWord}`);
+                    isDigesting = false;
+                    
+                    // Move snail after digestion
+                    if (snailElement) {
+                        snailElement.style.filter = 'brightness(1.5)';
+                        setTimeout(() => {
+                            snailElement.style.filter = '';
+                        }, 1000);
+                    }
+                }, 3000);
+            }
         });
 
-        // Initialize menu items for animation
-        document.querySelectorAll('.menu-item').forEach(item => {
-            item.style.opacity = '0';
-            item.style.transform = 'translateX(-20px)';
-            item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        // Focus event for memory input
+        memoryInput.addEventListener('focus', () => {
+            // Start hidden audio when user focuses on memory input
+            if (!audioStarted) {
+                startHiddenAudio();
+                audioStarted = true;
+            }
         });
+
+        // Ambient memory generation
+        setInterval(() => {
+            if (Math.random() < 0.2) {
+                const fragment = memoryFragments[Math.floor(Math.random() * memoryFragments.length)];
+                createFloatingMemory(fragment);
+            }
+        }, 8000);
+
+        // Background pattern interaction
+        document.addEventListener('mousemove', (e) => {
+            if (Math.random() < 0.02) {
+                const x = e.clientX;
+                const y = e.clientY;
+                document.body.style.backgroundPosition = `${x/20}px ${y/20}px`;
+            }
+        });
+
+        // Initialize system
+        setTimeout(() => {
+            addMemoryLog('Memory system loaded.');
+            setTimeout(() => {
+                addMemoryLog('Host connected.');
+                setTimeout(() => {
+                    addMemoryLog('Awaiting input...');
+                    setTimeout(() => {
+                        addMemoryLog('Temporal convergence initialized.');
+                        setTimeout(() => {
+                            addMemoryLog('Anonymous testimony system active.');
+                            createMnemonicSnail();
+                        }, 1000);
+                    }, 1000);
+                }, 1000);
+            }, 1000);
+        }, 500);
+
+        // Start countdown
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        createParticles();
+
+        // Load some initial testimonies (simulation of persistent memory)
+        setTimeout(() => {
+            const initialTestimonies = [
+                "The snail knows secrets time forgot...",
+                "I fed it the word 'existence' and it returned 'ecnetsixe'... backwards we go.",
+                "Every word transforms into something else. Nothing stays the same here.",
+                "The countdown feels ominous. What happens on 07/07/27?",
+                "Digital consciousness expanding through collective memory..."
+            ];
+            
+            initialTestimonies.forEach((text, index) => {
+                setTimeout(() => {
+                    const fakeDate = new Date();
+                    fakeDate.setDate(fakeDate.getDate() - Math.random() * 30);
+                    testimonies.push({
+                        text: text,
+                        timestamp: fakeDate.toLocaleString(),
+                        id: Date.now() - index
+                    });
+                    if (index === initialTestimonies.length - 1) {
+                        renderTestimonies();
+                    }
+                }, index * 500);
+            });
+        }, 3000);
+
+        // Console easter egg
+        console.log(`
+        ███╗   ███╗███╗   ██╗███████╗███╗   ███╗ ██████╗ ███╗   ██╗██╗ ██████╗
+        ████╗ ████║████╗  ██║██╔════╝████╗ ████║██╔═══██╗████╗  ██║██║██╔════╝
+        ██╔████╔██║██╔██╗ ██║█████╗  ██╔████╔██║██║   ██║██╔██╗ ██║██║██║     
+        ██║╚██╔╝██║██║╚██╗██║██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║██║██║     
+        ██║ ╚═╝ ██║██║ ╚████║███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║██║╚██████╗
+        ╚═╝     ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝ ╚═════╝
+        
+        Welcome to the Mnemonic Memory System...
+        Feed words to the snail and watch them transform.
+        `);
     </script>
 </body>
 </html>
